@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Header } from './components/layouts/Header';
+import { Content } from './components/layouts/Content';
+import { Footer } from './components/layouts/Footer';
+import { ProjectsProvider, SelectedProjectProvider } from './context';
 
-function App() {
+export const App = ({ isDark = false }) => {
+  const [darkTheme, setDarkTheme] = useState(isDark);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProjectsProvider >
+      <SelectedProjectProvider>
+        <div className={darkTheme ? 'theme--dark App' : 'theme--default App'}>
+          <Header
+            darkTheme={darkTheme}
+            setDarkTheme={setDarkTheme}
+          />
+          <Content />
+          <Footer />
+        </div>
+      </SelectedProjectProvider>
+    </ProjectsProvider>
   );
 }
-
-export default App;

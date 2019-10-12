@@ -1,0 +1,118 @@
+.tasks{
+  width: 100%;
+  min-height: 200px;
+  border-radius: 5px;
+  padding: 10px;
+  @include color-theme{
+    background: get-color($bg);
+    color: get-color($text);
+  }
+
+  .tasks__title{
+    color:$brand--red--light;
+    border-bottom: 1px solid $brand--red--light;
+    // @include color-theme{
+    //   border-bottom: 1px solid  get-color($text);
+    // }
+  }
+
+  .tasks__list{
+    width: 100%;
+    padding: 10px;
+    list-style-position: inside;
+    li{
+      line-height: 23px;
+      font-size: 17px;
+      margin-bottom: 5px;
+      @include color-theme{
+        border-bottom:1px dashed get-color($text);
+      }
+    }
+  }
+
+
+  .add-task__toggle{
+    @include flex();
+    @include btn(30px);
+    @include transparentBg();
+
+    span{
+      margin-left: 7px;
+      font-weight: bold;
+    }
+
+  }
+
+
+}
+.quick-add-task{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(black, .5);
+  z-index: 2;
+
+  &>.add-task{
+    background: $bg--light;
+    padding: 20px;
+    border-radius: 5px;
+  }
+}
+
+.add-task{
+  .form__btn{
+    @include btn(30px);
+    padding: 5px 10px;
+  }
+  .cancel{
+    @include transparentBg();
+  }
+  .add{
+    background: $brand--red--light;
+    color:  #f3f3f3;
+
+    &:hover{
+      background:lighten($brand--red--light,10%);
+    }
+  }
+
+  svg{
+    margin-right: 5px;
+  }
+
+  .form-item-list{
+    position: relative;
+    margin: 5px 10px;
+
+    &span{
+      text-align: center;
+    }
+
+    ul{
+      position: absolute;
+      right:0;
+      background: #f3f3f3;
+      list-style: none;
+      width: 120px;
+      border: 1px solid #a3a3a3;
+      color:$text--light;
+
+      li{
+        border-bottom: 1px solid #a3a3a3;
+        padding: 5px;
+
+        &:hover{
+          color:$brand--blue--light;
+        }
+      }
+    }
+  }
+
+
+
+}

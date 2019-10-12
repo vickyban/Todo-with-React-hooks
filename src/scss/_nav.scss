@@ -1,0 +1,63 @@
+.header{
+  $item-height:50px;
+  padding: 10px;
+
+
+  @include color-theme(){
+    background: get-color($bg);
+    color: get-color($text);
+  }
+
+  .header-nav{
+    height: $item-height;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    @include centerPage(80%);
+
+    .header-nav__item{
+      height: $item-height;
+    }
+
+    .logo {
+      width: 50px;
+      & img {
+        width: 100%;
+      }
+    }
+
+    .menu{
+      display: flex;
+      height: 100%;
+      justify-content: flex-end;
+      list-style: none;
+      @include color-theme(){
+        color: get-color($text);
+      }
+
+      &__item{
+        margin-left: 5px;
+
+        & > button{
+          all:unset;
+          width: 40px;
+          height: 100%;
+          padding: 5px;
+          background: transparent;
+          cursor: pointer;
+
+          & .fa-icon{
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// dark mode btn
+.dark-mode-btn .fa-icon{
+  @include color-theme(){
+    color: get-color($theme-icon);
+  }
+}

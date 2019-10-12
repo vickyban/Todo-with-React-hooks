@@ -1,0 +1,17 @@
+@import './scss/config';
+@import './scss/theme';
+@import './scss/nav';
+@import './scss/content';
+@import './scss/sidebar';
+
+footer{
+  @include color-theme(){
+    background: get-color($bg);
+    color: get-color($text);
+  }
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+}

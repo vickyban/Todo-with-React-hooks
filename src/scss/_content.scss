@@ -1,0 +1,10 @@
+@import './sidebar';
+@import './tasks';
+
+.content{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-gap: 10px;
+  @include centerPage(80%);
+  margin-top: 1rem;
+}

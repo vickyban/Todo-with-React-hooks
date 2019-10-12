@@ -1,0 +1,189 @@
+.sidebar{
+  @include color-theme(){
+    background: get-color($bg);
+    color: get-color($text);
+  }
+
+  & ul li, & .projects__header{
+    width: 100%;
+    min-height: 30px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    @include flex($align-items:center);
+
+    & > span{
+      margin-left: 5px;
+    }
+  }
+  .active{
+    @include color-theme(){
+      $color: get-color($text);
+      background:
+      linear-gradient(to bottom right,rgba(#fff, .3), rgba(#fff, .3)),
+      get-color($bg);
+      color:$color;
+    }
+  }
+}
+
+.sidebar__collated-tasks{
+  list-style: none;
+
+  & li{
+    border-bottom: 1.5px solid transparent;
+
+    &:hover{
+      overflow: hidden;
+      border-bottom-color:$brand--red--light;
+    }
+  }
+}
+.sidebar__projects{
+  .projects__header{
+    margin-bottom: 10px;
+    font-weight: bold;
+
+    @include color-theme(){
+      $color: get-color($text);
+      border-top: 1px solid $color;
+      border-bottom: 1px solid $color;
+    }
+  }
+
+  .projects__list{
+
+    li:nth-child(1n) {
+      .list-dot {
+        background: #6accbc;
+      }
+    }
+    li:nth-child(2n) {
+      .list-dot {
+        background: #fad003;
+      }
+    }
+    li:nth-child(3n) {
+      .list-dot {
+        background: #ff8d85;
+      }
+    }
+    li:nth-child(4n) {
+      .list-dot {
+        background: #ff9932;
+      }
+    }
+    li:nth-child(5n) {
+      .list-dot {
+        background: #af38eb;
+      }
+    }
+
+    .project{
+      display:grid;
+      grid-template-columns: 30px 1fr 30px;
+      width: 100%;
+      text-transform: uppercase;
+      align-items: center;
+      padding: 2px;
+
+      .list-dot{
+        @include square(6px);
+      }
+
+      .project__delete{
+        position: relative;
+        text-align: center;
+
+        .project-delete__btn{
+          all:unset;
+        }
+        .project-delete__modal{
+          position: absolute;
+          background: #f3f3f3;
+          width: 200px;
+          right: 0;
+          top: 5px;
+          text-transform: none;
+          border-radius: 5px;
+          overflow: hidden;
+
+          .modal__header{
+            background:$brand--red--light;
+            color:#f3f3f3;
+          }
+          .modal__text{
+            padding: 10px 0;
+            color:$bg--dark--top;
+          }
+
+          .modal__btn{
+            @include btn(30px);
+          }
+          .delete{
+            background: $brand--red--light;
+            color:  #f3f3f3;
+            &:hover{
+              background:darken($brand--red--light, 5%)
+            }
+          }
+
+
+          .modal__btn{
+            margin-right: 10px;
+            margin-bottom: 10px;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+.add-project{
+  .add-project__toggle{
+    width: 100%;
+    @include flex();
+    @include btn(30px);
+    @include transparentBg();
+
+    & .fa-icon{
+      margin: 0 5px;
+    }
+
+    & >span{
+      font-weight: bold;
+    }
+  }
+
+  .add-project__form{
+    margin: 5px 0;
+    .form__input{
+      margin: 0 10px;
+      height:30px;
+    }
+
+    .form__btn{
+      @include btn(30px);
+    }
+    .add{
+      background: $brand--red--light;
+      color:  #f3f3f3;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      &:hover{
+        background:lighten($brand--red--light,10%);
+      }
+    }
+
+  }
+}
+
+.cancel{
+  @include transparentBg();
+  &:hover{
+    color:lighten($bg--dark--top,30%);
+  }
+}
